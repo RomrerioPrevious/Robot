@@ -31,14 +31,11 @@ def create_map(path: str = r"resources/map.json") -> Node:
             node.up = up_node
 
             if name not in data:
-                continue
-            
-            node_data = data[name]
+                node_data = {"u": 1, "l": 1, "r": 1, "d": 1}
+            else:
+                node_data = data[name]
 
-            node.up_dir = node_data["u"]
-            node.down_dir = node_data["d"]
-            node.left_dir = node_data["l"]
-            node.right_dir = node_data["r"]
+            Node.update_nodes_values(node, node_data)
 
     return result
 
@@ -51,11 +48,14 @@ def main():
     log("Map was been created")
 
     main_handler = MainHandler()
-    route = main_handler.find_route(map)
+    route = main_handler.find_route(map, "12")
+
+    res = ""
+    for i in route:
+        res += str(i)
+    log(res)
 
     follow_route(route)
-
-    error("FUCK!!!")
 
 
 if __name__ == "__main__":
