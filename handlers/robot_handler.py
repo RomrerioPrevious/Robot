@@ -1,16 +1,18 @@
-class RobotHandler:
-    def __init__(self):
-        self.port = 1
+from models.enums import Dir
 
-    def go(self):
-        ...
 
-    def right(self):
-        ...
+def follow_route(route: [Dir]):
+    ...
 
-    def left(self):
-        ...
+def go():
+    ...
 
-    def make_sound(self):
-        ...
+def right():
+    ...
+
+def left():
+    ...
+
+def make_sound():
+    ...
 
