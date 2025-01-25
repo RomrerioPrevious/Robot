@@ -67,5 +67,18 @@ class MainHandler:
     def get_new_path_len(self, prev: Node, node: Node) -> int:
         return prev.min + node.get_len_by_dir(node.get_relative_position(prev))
 
-    def back(self, name: str, dir: Dir) -> [Dir]:
-        ...
+    def back(self, name: str) -> [Dir]:
+        result = []
+
+        symbol = 1
+        num = 3
+
+        for i in range(int(name[0]) - 1):
+            result.append(Dir.left)
+
+        if int(name[1]) > num:
+            for i in range(int(name[1]) - num):
+                result.append(Dir.up)
+        elif int(name[1]) < num:
+            for i in range(num - int(name[1])):
+                result.append(Dir.down)

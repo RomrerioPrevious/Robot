@@ -10,7 +10,7 @@ class Dir(Enum):
     none = 4
 
     @staticmethod
-    def relate(n1, n2) -> Dir:
+    def relate(n1, n2):
         if n1 == Dir.up:
             if n2 == Dir.right:
                 return Dir.right
