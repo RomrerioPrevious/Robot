@@ -6,6 +6,10 @@ class MainHandler:
     def __init__(self):
         ...
 
+    def read_barcode(self, line: str) -> str:
+        val = int(line, 2)
+        return str(val)
+
     def find_route(self, map: Node, start_name: str) -> [Dir]:
         self.calculate_dirs(map, start_name)
 
@@ -63,3 +67,5 @@ class MainHandler:
     def get_new_path_len(self, prev: Node, node: Node) -> int:
         return prev.min + node.get_len_by_dir(node.get_relative_position(prev))
 
+    def back(self, name: str, dir: Dir) -> [Dir]:
+        ...

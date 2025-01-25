@@ -48,7 +48,8 @@ def main():
     log("Map was been created")
 
     main_handler = MainHandler()
-    route = main_handler.find_route(map, "12")
+    coord = main_handler.read_barcode("001100")
+    route = main_handler.find_route(map, coord)
 
     res = ""
     for i in route:
